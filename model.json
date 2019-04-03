@@ -1,0 +1,100 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "クラメソ亭",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "OrderIntent",
+                    "slots": [
+                        {
+                            "name": "flavor",
+                            "type": "list_of_flavor",
+                            "samples": [
+                                "{flavor} を下さい",
+                                "{flavor}",
+                                "{flavor} でお願いします"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "{flavor} ",
+                        "ラーメンを下さい"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "list_of_flavor",
+                    "values": [
+                        {
+                            "id": "塩",
+                            "name": {
+                                "value": "塩"
+                            }
+                        },
+                        {
+                            "id": "醤油",
+                            "name": {
+                                "value": "醤油"
+                            }
+                        },
+                        {
+                            "id": "味噌",
+                            "name": {
+                                "value": "味噌"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "OrderIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "flavor",
+                            "type": "list_of_flavor",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.733341028491.681877206508"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.733341028491.681877206508",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "何味になさいますか"
+                    }
+                ]
+            }
+        ]
+    }
+}
